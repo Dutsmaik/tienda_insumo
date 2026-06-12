@@ -208,7 +208,7 @@
                     <h2 class="form-title">Bienvenido de nuevo</h2>
                     <p class="text-muted small mb-4">Ingrese sus credenciales para acceder al panel de control.</p>
 
-                    <form action="#" method="POST">
+                    <form action="../../Controllers/auth/authController.php" method="POST">
                         <div class="mb-3">
                             <label for="email" class="form-label">Correo Electrónico / Usuario</label>
                             <div class="input-group">
