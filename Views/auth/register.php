@@ -12,6 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <!-- SweetAlert2 CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <style>
         :root {
@@ -206,54 +208,38 @@
                     <h2 class="form-title">Crear Cuenta</h2>
                     <p class="text-muted small mb-4">Ingrese la información requerida para registrar un nuevo usuario.</p>
 
-                    <form action="#" method="POST">
-                        <div class="row g-2">
-                            <div class="col-md-6 mb-3">
-                                <label for="fullname" class="form-label">Nombre Completo</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
-                                    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Juan Pérez" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="email" class="form-label">Correo Electrónico</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="juan@correo.com" required>
-                                </div>
-                            </div>
-                        </div>
-
+                    <form action="../../Controllers/auth/registerController.php" method="POST">
+                        
                         <div class="mb-3">
-                            <label for="role" class="form-label">Rol en el Sistema</label>
+                            <label for="usuario" class="form-label">Usuario</label>
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-briefcase"></i></span>
-                                <select class="form-select" id="role" name="role" required>
-                                    <option value="" disabled selected>Seleccione su rol...</option>
-                                    <option value="administrador">Administrador (Control Total)</option>
-                                    <option value="vendedor">Vendedor (Punto de Venta / Facturas)</option>
-                                    <option value="bodeguero">Bodeguero (Gestión de Stock / Bodega)</option>
-                                </select>
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Nombre Usuario" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@email.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="••••••••" required>
                             </div>
                         </div>
 
-                        <div class="row g-2">
-                            <div class="col-md-6 mb-4">
-                                <label for="password" class="form-label">Contraseña</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="••••••••" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <label for="confirm_password" class="form-label">Confirmar Contraseña</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="••••••••" required>
-                                </div>
-                            </div>
-                        </div>
-
+                        <div class="mb-4 form-check d-flex align-items-start gap-2">
+                            <input type="checkbox" class="form-check-input bg-transparent border-secondary mt-1" id="terms" name="terms" required>
+                            <label class="form-check-label text-secondary small" for="terms">
+                                Acepto los <a href="#" class="text-link">Términos de Servicio</a> y la <a href="#" class="text-link">Política de Privacidad</a>.
+                            </label>
+                            <div class="invalid-feedback">Debes aceptar los términos para registrarte.</div>
+                        </div>                        
                         <button type="submit" class="btn btn-auth-submit mb-4">
                             <i class="bi bi-person-plus me-2"></i>Registrar Cuenta
                         </button>
